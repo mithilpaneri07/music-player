@@ -1,3 +1,4 @@
 # music-player
 simple python music player
+<br>
 Commands: p(play/pause) | r(resume) | s(stop) | q(quit)
