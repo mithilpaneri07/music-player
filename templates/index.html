@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="bg-shape"></div>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Modern web music player</p>
+        <h1>Play from your library or drop a new track.</h1>
+        <p class="lede">Pick any file in your local music folder or upload a track ad hoc. Responsive controls, smooth progress, zero uploads.</p>
+      </div>
+      <button class="pill" id="chooseButton">Choose audio</button>
+    </header>
+
+    <section class="card rec-card">
+      <div class="rec-head">
+        <div>
+          <p class="eyebrow">From your music folder</p>
+          <h2 class="rec-title">Recommended picks</h2>
+        </div>
+        <button class="ghost-btn" id="refreshRecommendations">Refresh</button>
+      </div>
+      <div class="rec-list" id="recList"></div>
+      <p class="library-empty" id="recEmpty">Add audio files to the music folder to see recommendations.</p>
+    </section>
+
+    <section class="deck">
+      <div class="card">
+        <div class="tag">Now playing</div>
+        <div class="track-meta">
+          <div class="artwork" aria-hidden="true"></div>
+          <div>
+            <p class="track-title" id="trackTitle">No file selected</p>
+            <p class="track-sub" id="trackSubtitle">Load a song to start</p>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span id="currentTime">0:00</span>
+          <div class="bar" id="progressBar">
+            <div class="bar-fill" id="progressFill"></div>
+          </div>
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="controls">
+          <button class="ctrl ghost" id="stopBtn" title="Stop" aria-label="Stop">
+            <span>&#9632;</span>
+          </button>
+          <button class="ctrl primary" id="playPauseBtn" title="Play/Pause" aria-label="Play or pause">
+            <span id="playPauseIcon">&#9658;</span>
+          </button>
+          <button class="ctrl ghost" id="resumeBtn" title="Resume" aria-label="Resume">
+            <span>&#8635;</span>
+          </button>
+        </div>
+
+        <input type="file" id="fileInput" accept="audio/*" hidden />
+        <audio id="audio"></audio>
+      </div>
+
+      <div class="card library">
+        <div class="tag">Music folder</div>
+        <div class="library-head">
+          <p class="muted">Tracks in /music</p>
+          <button class="ghost-btn" id="refreshLibrary">Refresh</button>
+        </div>
+        <div class="library-list" id="libraryList"></div>
+        <p class="library-empty" id="libraryEmpty">Drop files into the music folder to see them here.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
